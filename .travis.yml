@@ -1,0 +1,14 @@
+language: java
+install:
+  - git clone https://github.com/masterlemmi/commons.git
+  - cd commons && ./gradlew build publishToMavenLocal
+
+jdk:
+  - oraclejdk8
+
+services:
+  - docker
+
+script:
+  - ./gradlew build
+  - ./docker-travis.sh
